@@ -19,13 +19,16 @@ namespace WpfDataModels.AbstractClass
         }
         public AbsMatrix() : this(3, 3) { }
 
+
+        public AbsMatrix(int n) : this(n, n) { }
+
         public int RowCount
         {
             get
             {
                 if (matrix != null)
                     return matrix.GetLength(0);
-                else 
+                else
                     return -1;
             }
         }

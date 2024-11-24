@@ -19,8 +19,8 @@ namespace WpfDataModels.Interface
 
         public void RotateToLeft();
         public void RotatetToRight();
-        public void RotatetToTop();
-        public void RotatetToDown();
+        public void RotateToTop();
+        public void RotateToDown();
 
     }
 }

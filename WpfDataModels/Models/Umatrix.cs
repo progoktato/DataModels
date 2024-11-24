@@ -14,13 +14,17 @@ namespace WpfDataModels.Models
         {
         }
 
+        public Umatrix(int n) : base(n, n)
+        {
+        }
+
         public Umatrix() : base()
         {
         }
 
         public String ToString(String message)
         {
-            return message+"\n"+ToString();
+            return message + "\n" + ToString();
         }
 
         public override String ToString()
@@ -101,7 +105,7 @@ namespace WpfDataModels.Models
             }
         }
 
-        public void RotatetToDown()
+        public void RotateToDown()
         {
             throw new NotImplementedException();
         }
@@ -111,7 +115,7 @@ namespace WpfDataModels.Models
             throw new NotImplementedException();
         }
 
-        public void RotatetToTop()
+        public void RotateToTop()
         {
             throw new NotImplementedException();
         }
