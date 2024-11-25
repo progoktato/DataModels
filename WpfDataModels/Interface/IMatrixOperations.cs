@@ -18,8 +18,8 @@ namespace WpfDataModels.Interface
         public bool Equals(MatrixStruct other);
 
         public void RotateToLeft();
-        public void RotatetToRight();
-        public void RotateToTop();
+        public void RotateToRight();
+        public void RotateToUp();
         public void RotateToDown();
 
     }

@@ -22,6 +22,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Margin="10">
+            <Label Content="Stack (LIFO)" FontSize="20" HorizontalContentAlignment="Center"/>
             <Button x:Name="btnRandom" Height="40" Margin="5" Content="Random Push(■)" Click="btnRandom_Click"/>
             <Separator/>
 

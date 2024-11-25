@@ -8,38 +8,46 @@
         Title="User Models examples" Height="600" Width="1200">
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="3.5*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Background="LightGoldenrodYellow">
+
+        <StackPanel Grid.Column="1">
+            <Button x:Name="btnToLeft" Content="RotateToLeft" Click="btnToLeft_Click"/>
+            <Button x:Name="btnToRight" Content="RotateToRight" Click="btnToRight_Click"/>
+            <Button x:Name="btnToTop" Content="RotateToUp" Click="btnToTop_Click"/>
+            <Button x:Name="btnToBottom" Content="RotateToDown" Click="btnToBottom_Click"/>
+        </StackPanel>
+        
+        <Grid Grid.Row="0" Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="8*"/>
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-            <ScrollViewer Grid.RowSpan="2">
-                <TextBlock x:Name="txtMatrix" Background="LightSteelBlue" FontFamily="Consolas"  />
-            </ScrollViewer>
-            <Grid Grid.Row="2" Grid.RowSpan="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-
-                <Button x:Name="btnUstack" Grid.Row="0" Margin="10" FontSize="20"
-            Content="Ustack szerkezet" Click="btnUstack_Click"/>
-                <Button x:Name="btnUqueue" Grid.Row="1" Margin="10" FontSize="20"
-            Content="Uqueue szerkezet" Click="btnUqueue_Click"/>
-                <Button x:Name="btnUset" Grid.Row="2" Margin="10" FontSize="20"
-            Content="Uset szerkezet" Click="btnUset_Click"/>
-            </Grid>
+            <Button x:Name="btnUstack" Grid.Column="0" Margin="10" FontSize="20"
+            Content="STACK (LIFO, verem)" Click="btnUstack_Click"/>
+            <Button x:Name="btnUqueue" Grid.Column="1" Margin="10" FontSize="20"
+            Content="QUEUE (FIFO, sor)" Click="btnUqueue_Click"/>
+            <Button x:Name="btnUset" Grid.Column="2" Margin="10" FontSize="20"
+            Content="SET (halmaz)" Click="btnUset_Click"/>
+            <Frame Grid.Row="1" Grid.ColumnSpan="3"  x:Name="MainFrame"/>
         </Grid>
 
-        <Frame Grid.Column="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+
+        <ScrollViewer x:Name="scrollViewer" Grid.RowSpan="2" HorizontalScrollBarVisibility="Visible">
+            <TextBlock x:Name="txtMatrix" Background="LightSteelBlue"
+                       TextWrapping="NoWrap"
+                       FontFamily="Consolas"  />
+        </ScrollViewer>
+
 
     </Grid>
 </Window>

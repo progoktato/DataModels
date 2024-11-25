@@ -22,25 +22,31 @@ namespace WpfDataModels
         private Page pUqueue = new PageUqueue();
         private Page pUset = new PageUset();
 
+        AImatrix bitmap;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            AImatrix matrix = new AImatrix(3, 5);
-            matrix.FillRandomInt(-1000, 2000);
-            txtMatrix.Text = matrix.ToString("[A] mátrix");
+            AImatrix valos = new AImatrix(5);
+            valos.FillRandomFloat(-10000, 10000);
+            txtMatrix.Text = valos.ToString("5*5-ös mátrix");
+
+            AImatrix matrixA = new AImatrix(3, 5);
+            matrixA.FillRandomInt(-1000, 2000);
+            txtMatrix.Text+= matrixA.ToString("A mátrix");
 
             AImatrix matrixB = new AImatrix(3, 5);
             matrixB.FillRandomInt(-1000, 2000);
-            txtMatrix.Text+= '\n'+matrixB.ToString("[B] mátrix");
+            txtMatrix.Text+= matrixB.ToString("B mátrix");
 
-            matrix.Add(matrixB);
-            txtMatrix.Text+= '\n' + matrix.ToString("[A] = [A + B] eredménye");
+            matrixA.Add(matrixB);
+            txtMatrix.Text+= matrixA.ToString("A + B eredménye A-ban");
 
 
-            matrix.RotateToLeft();
-            txtMatrix.Text += '\n' + matrix.ToString("[A] elforgatása balra");
+            bitmap=new AImatrix(6, 12);
+            bitmap.FillRandomInt(0, 256);
+            txtMatrix.Text += bitmap.ToString("BITMAP");
 
             MainFrame.Navigate(new PageUstack());
 
@@ -59,6 +65,34 @@ namespace WpfDataModels
         private void btnUset_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(pUset);
+        }
+
+        private void btnToRight_Click(object sender, RoutedEventArgs e)
+        {
+            bitmap.RotateToRight();
+            txtMatrix.Text += bitmap.ToString("BITMAP elforgatása jobbra");
+            scrollViewer.ScrollToEnd();
+        }
+
+        private void btnToTop_Click(object sender, RoutedEventArgs e)
+        {
+            bitmap.RotateToUp();
+            txtMatrix.Text += bitmap.ToString("BITMAP elforgatása felfelé");
+            scrollViewer.ScrollToEnd();
+        }
+
+        private void btnToBottom_Click(object sender, RoutedEventArgs e)
+        {
+            bitmap.RotateToDown();
+            txtMatrix.Text += bitmap.ToString("BITMAP elforgatása lefelé");
+            scrollViewer.ScrollToEnd();
+        }
+
+        private void btnToLeft_Click(object sender, RoutedEventArgs e)
+        {
+            bitmap.RotateToLeft();
+            txtMatrix.Text += bitmap.ToString("BITMAP elforgatása balra");
+            scrollViewer.ScrollToEnd();
         }
     }
 }

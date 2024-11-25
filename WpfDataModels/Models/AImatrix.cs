@@ -22,9 +22,9 @@ namespace WpfDataModels.Models
         {
         }
 
-        public String ToString(String message)
+        public String ToString(String caption)
         {
-            return message + "\n" + ToString();
+            return $"\n{caption}\n{ToString()}";
         }
 
         public override String ToString()
@@ -105,29 +105,68 @@ namespace WpfDataModels.Models
             }
         }
 
+
+        public void RotateToRight()
+        {
+            for (int rowIndex = 0; rowIndex < RowCount; rowIndex++)
+            {
+                double temp = this[rowIndex, ColumnCount - 1];
+                for (int columnIndex = ColumnCount - 1; columnIndex > 0; columnIndex--)
+                {
+                    this[rowIndex, columnIndex] = this[rowIndex, columnIndex - 1];
+                }
+                this[rowIndex, 0] = temp;
+            }
+        }
+
+        public void RotateToUp()
+        {
+            for (int columnIndex = 0; columnIndex < ColumnCount; columnIndex++)
+            {
+                double temp = this[0, columnIndex];
+                for (int rowIndex = 1; rowIndex < RowCount; rowIndex++)
+                {
+                    this[rowIndex - 1, columnIndex] = this[rowIndex, columnIndex];
+                }
+                this[RowCount - 1, columnIndex] = temp;
+            }
+        }
+
         public void RotateToDown()
         {
-            throw new NotImplementedException();
-        }
-
-        public void RotatetToRight()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RotateToTop()
-        {
-            throw new NotImplementedException();
+            for (int columnIndex = 0; columnIndex < ColumnCount; columnIndex++)
+            {
+                double temp = this[RowCount - 1, columnIndex];
+                for (int rowIndex = RowCount - 1; rowIndex > 0; rowIndex--)
+                {
+                    this[rowIndex, columnIndex] = this[rowIndex - 1, columnIndex];
+                }
+                this[0, columnIndex] = temp;
+            }
         }
 
         public void Sub(MatrixStruct subMatrix)
         {
-            throw new NotImplementedException();
+            for (int rowIndex = 0; rowIndex < RowCount; rowIndex++)
+            {
+                for (int columnIndex = 0; columnIndex < ColumnCount; columnIndex++)
+                {
+                    this[rowIndex, columnIndex] -= subMatrix[rowIndex, columnIndex];
+                }
+            }
         }
 
         public void FillRandomFloat(double start, double end)
         {
-            throw new NotImplementedException();
+            Random rnd = new Random();
+            for (int rowIndex = 0; rowIndex < RowCount; rowIndex++)
+            {
+                for (int columnIndex = 0; columnIndex < ColumnCount; columnIndex++)
+                {
+                    this[rowIndex, columnIndex] = (float)(rnd.NextDouble() * (end - start) + start);
+                }
+            }
+
         }
 
         public void FillRandomInt(int start, int end)

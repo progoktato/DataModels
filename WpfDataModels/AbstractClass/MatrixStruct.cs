@@ -17,10 +17,9 @@ namespace WpfDataModels.AbstractClass
                 throw new ArgumentException("Bad argument!");
             matrix = new double[row, column];
         }
-        public MatrixStruct() : this(3, 3) { }
-
 
         public MatrixStruct(int n) : this(n, n) { }
+        public MatrixStruct() : this(3) { }
 
         public int RowCount
         {
