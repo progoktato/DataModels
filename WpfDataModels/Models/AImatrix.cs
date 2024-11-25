@@ -8,17 +8,17 @@ using WpfDataModels.Interface;
 
 namespace WpfDataModels.Models
 {
-    public class Umatrix : AbsMatrix, IMatrixOperations
+    public class AImatrix : MatrixStruct, IMatrixOperations
     {
-        public Umatrix(int row, int column) : base(row, column)
+        public AImatrix(int row, int column) : base(row, column)
         {
         }
 
-        public Umatrix(int n) : base(n, n)
+        public AImatrix(int n) : base(n, n)
         {
         }
 
-        public Umatrix() : base()
+        public AImatrix() : base()
         {
         }
 
@@ -55,7 +55,7 @@ namespace WpfDataModels.Models
             }
             return sb.ToString();
         }
-        public void Add(AbsMatrix addMatrix)
+        public void Add(MatrixStruct addMatrix)
         {
             for (int rowIndex = 0; rowIndex < RowCount; rowIndex++)
             {
@@ -66,7 +66,7 @@ namespace WpfDataModels.Models
             }
         }
 
-        public bool Equals(AbsMatrix other)
+        public bool Equals(MatrixStruct other)
         {
             bool isEqual = true; //assumption
             for (int rowIndex = 0; rowIndex < RowCount; rowIndex++)
@@ -120,7 +120,7 @@ namespace WpfDataModels.Models
             throw new NotImplementedException();
         }
 
-        public void Sub(AbsMatrix subMatrix)
+        public void Sub(MatrixStruct subMatrix)
         {
             throw new NotImplementedException();
         }

@@ -7,20 +7,20 @@ using System.Windows.Media;
 
 namespace WpfDataModels.AbstractClass
 {
-    public abstract class AbsMatrix
+    public abstract class MatrixStruct
     {
         private double[,] matrix;
 
-        public AbsMatrix(int row, int column)
+        public MatrixStruct(int row, int column)
         {
             if (row <= 0 || column <= 0)
                 throw new ArgumentException("Bad argument!");
             matrix = new double[row, column];
         }
-        public AbsMatrix() : this(3, 3) { }
+        public MatrixStruct() : this(3, 3) { }
 
 
-        public AbsMatrix(int n) : this(n, n) { }
+        public MatrixStruct(int n) : this(n, n) { }
 
         public int RowCount
         {

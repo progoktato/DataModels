@@ -27,11 +27,11 @@ namespace WpfDataModels
         {
             InitializeComponent();
 
-            Umatrix matrix = new Umatrix(3, 5);
+            AImatrix matrix = new AImatrix(3, 5);
             matrix.FillRandomInt(-1000, 2000);
             txtMatrix.Text = matrix.ToString("[A] mátrix");
 
-            Umatrix matrixB = new Umatrix(3, 5);
+            AImatrix matrixB = new AImatrix(3, 5);
             matrixB.FillRandomInt(-1000, 2000);
             txtMatrix.Text+= '\n'+matrixB.ToString("[B] mátrix");
 

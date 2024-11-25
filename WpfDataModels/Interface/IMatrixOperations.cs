@@ -13,9 +13,9 @@ namespace WpfDataModels.Interface
         public void Fill(double value);
         public void FillRandomFloat(double start, double end);
         public void FillRandomInt(int start, int end);
-        public void Add(AbsMatrix addMatrix);
-        public void Sub(AbsMatrix subMatrix);
-        public bool Equals(AbsMatrix other);
+        public void Add(MatrixStruct addMatrix);
+        public void Sub(MatrixStruct subMatrix);
+        public bool Equals(MatrixStruct other);
 
         public void RotateToLeft();
         public void RotatetToRight();
